@@ -1,80 +1,61 @@
-import {createRouter, createWebHashHistory} from 'vue-router';
+import {createRouter, createWebHashHistory, RouteRecordRaw} from 'vue-router';
 // 定义路由
-const routes = [
+const routes: RouteRecordRaw[] = [
     {
         path: '/',
-        name: 'Home',
-        component: () => import('@/layout/defaultLayout.vue'),
-        redirect: '/hot-token',
-        meta: {requiresAuth: true},
+        redirect: '/login',
+        component: () => import('@/layout/Index.vue'),
         children: [
             {
-                path: '/hot-token',
-                name: 'hot-token',
-                component: () => import('@/views/hot-token/hot-token.vue'),
-                meta: {title: "热门代币", requiresAuth: true},
+                path: '/home',
+                name: 'home',
+                component: () => import('@/views/home/Index.vue')
             },
             {
-                path: '/search-token',
-                name: 'search-token',
-                component: () => import('@/views/search-token/search-token.vue'),
-                meta: {title: "代币搜索", requiresAuth: true},
+                path: '/setting',
+                name: 'setting',
+                component: () => import('@/views/setting/Index.vue')
             },
             {
-                path: '/watch-robot',
-                name: 'watch-robot',
-                component: () => import('views/watch-robot/robot-content/watch-robot.vue'),
-                meta: {title: "监听SWAP", requiresAuth: true},
+                path: '/pre-sale',
+                name: 'pre-sale',
+                component: () => import('@/views/pre-sale/Index.vue')
             },
             {
-                path: '/watch-setting',
-                name: 'watch-setting',
-                component: () => import('views/watch-robot/watch-setting/watch-setting.vue'),
-                meta: {title: "设置", requiresAuth: true},
+                path: '/batch-airdrop',
+                name: 'batch-airdrop',
+                component: () => import('@/views/batch-airdrop/Index.vue')
             },
             {
-                path: '/watch-start',
-                name: 'watch-start',
-                component: () => import('views/watch-robot/watch-start/watch-start.vue'),
-                meta: {title: "启动", requiresAuth: true},
+                path: '/application',
+                name: 'application',
+                component: () => import('@/views/application/Index.vue')
             },
             {
-                path: '/alliance',
-                name: 'alliance',
-                component: () => import('@/views/alliance/alliance.vue'),
-                meta: {title: "联盟", requiresAuth: true},
+                path: '/polymeric-airdrop',
+                name: 'polymeric-airdrop',
+                component: () => import('@/views/polymeric-airdrop/Index.vue')
             },
             {
-                path: '/intro',
-                name: 'intro',
-                component: () => import('@/views/intro/intro.vue'),
-                meta: {title: "简介", requiresAuth: true},
+                path: '/pledge',
+                name: 'pledge',
+                component: () => import('@/views/pledge/Index.vue')
             },
             {
-                path: '/node-cut',
-                name: 'node-cut',
-                component: () => import('@/views/node-cut/node-cut.vue'),
-                meta: {title: "节点切换", requiresAuth: true},
+                path: '/swiper',
+                name: 'swiper',
+                component: () => import('@/views/swiper/Index.vue')
+            },{
+                path: '/notice',
+                name: 'notice',
+                component: () => import('@/views/notice/Index.vue')
             },
             {
-                path: '/airdrop',
-                name: 'airdrop',
-                component: () => import('@/views/airdrop/airdrop.vue'),
-                meta: {title: "空投", requiresAuth: true},
+                path: '/main-airdrop',
+                name: 'main-airdrop',
+                component: () => import('@/views/main-airdrop/Index.vue')
             },
-            {
-                path: '/member',
-                name: 'member',
-                component: () => import('@/views/member/member.vue'),
-                meta: {title: "账户", requiresAuth: true},
-            }
         ]
-    },
-    {
-        path:'/login',
-        name: 'login',
-        component: () => import('@/views/login/login.vue'),
-        meta: {title: "登录"},
     }
 ];
 

@@ -8,9 +8,15 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AiButton: typeof import('./src/components/ai-button.vue')['default']
+    ConfirmModal: typeof import('./src/components/ConfirmModal.vue')['default']
+    LineCharts: typeof import('./src/components/LineCharts.vue')['default']
+    Modal: typeof import('./src/components/Modal.vue')['default']
+    Number: typeof import('./src/components/Number.vue')['default']
+    NumberInput: typeof import('./src/components/NumberInput.vue')['default']
     PopWindow: typeof import('./src/components/pop-window.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Table: typeof import('./src/components/Table.vue')['default']
     Te: typeof import('./src/components/te.vue')['default']
     VarAppBar: typeof import('@varlet/ui')['_AppBarComponent']
     VarAutoComplete: typeof import('@varlet/ui')['_AutoCompleteComponent']

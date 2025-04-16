@@ -26,20 +26,14 @@ export const DEVnet = {
 
 export const config = createConfig({
   chains: [
-    // ZMnet,
-    // bsc,
     bscTestnet
-    // ,localhost,DEVnet
   ],
   connectors: [
     coinbaseWallet({ appName: 'Vite Vue Playground', darkMode: true }),
   ],
   storage: createStorage({ storage: localStorage, key: 'vite-vue' }),
   transports: {
-    // [ZMnet.id]: http(),
-    // [bsc.id]: http(),
     [bscTestnet.id]: http(),
-    // [DEVnet.id]: http(),
   },
 })
 

@@ -1,5 +1,3 @@
-import {ethers} from "ethers";
-
 export function formatAddress(address:string) {
     // 确保地址以 '0x' 开头且长度为42字符
     if (address && address.length === 42 && address.startsWith('0x')) {
@@ -9,33 +7,3 @@ export function formatAddress(address:string) {
     }
     return 'Invalid address';               // 如果地址不符合规范，返回提示
 }
-
-
-export function getNumber(accountInfo:any,key?:string,isBig:boolean = false){
-    if(typeof accountInfo === "bigint"){
-        return ethers.formatEther(accountInfo)
-    }
-    if(!key) return 0;
-    if(!accountInfo || accountInfo[key]) return 0;
-    if(Number(accountInfo[key]) === 0) return 0;
-    if(isBig){
-        return ethers.formatEther(accountInfo[key]);
-    }
-    return accountInfo[key]
-}
-
-export async function pingTest(url:string) {
-    try {
-        const startTime = performance.now(); // 开始时间
-        const response = await fetch(url, { cache: 'no-cache', mode: 'no-cors' }); // 避免缓存
-        const endTime = performance.now(); // 结束时间
-        if (!response.ok && response.type !== 'opaque') {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-         // 计算延迟
-        return (endTime - startTime).toFixed(2);
-    } catch (error) {
-        return 0;
-    }
-}
-
